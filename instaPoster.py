@@ -27,15 +27,39 @@ while posting == True:
         # splits up the file name
         filename = file.split('&')
 
+        # checks if the follower count has a comma
+        if ',' in filename[1]:
+            followers = filename[1].split(',')
+            followersInt = (int(followers[0]) * 1000 + int(followers[1]))
+        # checks if the follower count has a k
+        elif 'k' in filename[1]:
+            followers = filename[1].split('k')
+            followersInt = int(followers[0]) * 1000
+        # checks if the follower count has a m
+        elif 'm' in filename[1]:
+            followers = filename[1].split('m')
+            followersInt = int(followers[0]) * 1000000
+        # if there isn't anything speciall it's just turned into the followers var
+        else:
+            followersInt = int(filename[1])
+
+        # checks if the likes has a comma
+        if ',' in filename[3]:
+            likes = filename[3].split(',')
+            likesInt = int(''.join(likes))
+        # if there isn't anything speciall it's just turned into the likes var
+        else:
+            likesInt = int(filename[3])
+
         # gets the current datetime and the datetime of the post and 
         datePost = datetime.strptime(filename[2], "%Y-%m-%dT%H:%M:%S.%fZ")
         dateDif = datetime.now() - datePost
 
         # calculates the engagement
-        engagement = float(filename[3]) / float(filename[1])
+        engagement = likesInt / followersInt
 
         # prints out some info about the photo     
-        print('the poster has ' + filename[1] + ' followers, ' + filename[3] + ' likes on this post and it was posted ' + str(dateDif) + ' ago. This is an engagement rate of ' + str(engagement))
+        print('the poster has ' + str(followersInt) + ' followers, ' + str(likesInt) + ' likes on this post and it was posted ' + str(dateDif) + ' ago. This is an engagement rate of ' + str(engagement))
 
         # checks if the post is above the minimun engagement rate and age
         # had to make 2 if statements since doing if engagement > minEngagementRate & dateDif.days > minAge: freaked it out
