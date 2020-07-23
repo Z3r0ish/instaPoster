@@ -4,7 +4,7 @@ An Instagram Poster made in python
 # Requirements
 * A *nix based OS (I'm using Arch linux)
 * [Python and pip](https://www.python.org/downloads/ "Python and pip")
-* [selenium (pip install instabot)](https://pypi.org/project/instabot/ "selenium (pip install instabot)")
+* [instabot (pip install instabot)](https://pypi.org/project/instabot/ "instabot (pip install instabot)")
 * [You have to use my instaScraper to get the images / video so it can understand what to do](https://github.com/Z3r0ish/instaScraper "You have to use my instaScraper to get the images / video so it can understand what to do")
 
 ## How to use
