@@ -1,10 +1,15 @@
 from instabot import Bot
 from datetime import datetime, timedelta
+from random import *
 import os, random, time
 from config import *
 
 posting = True
 i = 0
+
+# login into instagram
+bot = Bot() 
+bot.login(username = user, password = passwd) 
 
 # loops the posting function ever x secs
 while posting == True:
@@ -34,11 +39,11 @@ while posting == True:
         # checks if the follower count has a k
         elif 'k' in filename[1]:
             followers = filename[1].split('k')
-            followersInt = int(followers[0]) * 1000
+            followersInt = float(followers[0]) * 1000
         # checks if the follower count has a m
         elif 'm' in filename[1]:
             followers = filename[1].split('m')
-            followersInt = int(followers[0]) * 1000000
+            followersInt = float(followers[0]) * 1000000
         # if there isn't anything speciall it's just turned into the followers var
         else:
             followersInt = int(filename[1])
@@ -65,13 +70,15 @@ while posting == True:
         # had to make 2 if statements since doing if engagement > minEngagementRate & dateDif.days > minAge: freaked it out
         if engagement > minEngagementRate: 
             if dateDif.days > minAge:
-                # login into instagram
-                bot = Bot() 
-                bot.login(username = user, password = passwd) 
-
+                 # random caption shit
+                if randomCaption == True:
+                    i = randint(0, (len(topCaption) - 1))
+                else:
+                    i += 1
+                
                 #upload the file
                 bot.upload_photo(filepath + file, caption = (topCaption[i] + bottomCaption))
-                i += 1
+                    
                 posted = True
         
         # delete the file once it's done with it
