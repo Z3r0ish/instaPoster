@@ -21,6 +21,11 @@ while posting == True:
         print("The folder is empty")
         posting = False
 
+    # random caption shit
+    if randomCaption == True:
+        i = randint(-1, (len(topCaption) - 1))
+    elif randomCaption == False:
+        i += 1
     # in the event that i becomes larger than they array it will reset to 0
     if i > (len(topCaption) - 1):
         i = 0
@@ -70,12 +75,6 @@ while posting == True:
         # had to make 2 if statements since doing if engagement > minEngagementRate & dateDif.days > minAge: freaked it out
         if engagement > minEngagementRate: 
             if dateDif.days > minAge:
-                 # random caption shit
-                if randomCaption == True:
-                    i = randint(0, (len(topCaption) - 1))
-                else:
-                    i += 1
-                
                 #upload the file
                 bot.upload_photo(filepath + file, caption = (topCaption[i] + bottomCaption))
                     
