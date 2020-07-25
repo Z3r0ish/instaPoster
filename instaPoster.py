@@ -93,4 +93,4 @@ while posting == True:
             print("The folder is empty")
             posting = False
 
-    time.sleep(timeout)
+    time.sleep(timeout + randint(-randomTimeout, randomTimeout))

@@ -14,10 +14,11 @@ An Instagram Poster made in python
 3. Change the minimum engagement rate (likes over followers) on line 4 of config.py
 4. Change the minimum age (in days) of the scrapped post you're using on line 5 of config.py
 5. Change the time between post (in seconds) on line 6 of config.py
-6. On line 7 of config.py you can make it so the top captions will be posted in order or randomly, by default it's set to True which makes it random but however if you want it to be random set it to False
-7. Change the top caption on line 8 of config.py
+    * on line 7 you can make the posting time semi-random so it looks more humman
+6. On line 8 of config.py you can make it so the top captions will be posted in order or randomly, by default it's set to True which makes it random but however if you want it to be random set it to False
+7. Change the top caption on line 9 of config.py
     * It's an array to so if you want to switch up captions between post
-8.  Change the bottom caption on line 9 of config.py
+8.  Change the bottom caption on line 10 of config.py
     * This is meant for hashtags and what not
 9. Run it by doing ``python instaPoster.py``
 
